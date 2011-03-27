@@ -1,4 +1,12 @@
 /*
+ * This file contains code of the APNdroid project.
+ * Changes:
+ *   - Change package name
+ *   - Merge ApnDao, ApplicationConstants and NameUtil into
+ *     a single file
+*/
+
+/*
  * This file is part of APNdroid.
  *
  * APNdroid is free software: you can redistribute it and/or modify
