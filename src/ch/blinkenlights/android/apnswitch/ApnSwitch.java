@@ -25,7 +25,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.RemoteViews;
 
-
 public class ApnSwitch extends AppWidgetProvider {
 	static public final String CLICK = "ch.blinkenlights.android.apnswitch.CLICK";
 	
@@ -66,7 +65,6 @@ public class ApnSwitch extends AppWidgetProvider {
 	 * Returns TRUE if we should use ApnICS();
 	*/
 	private boolean isICS() {
-		log(">>> "+ android.os.Build.VERSION.SDK_INT);
 		return ( android.os.Build.VERSION.SDK_INT >= 14 ? true : false );
 	}
 	
