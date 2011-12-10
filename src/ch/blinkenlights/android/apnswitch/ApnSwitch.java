@@ -58,11 +58,11 @@ public class ApnSwitch extends AppWidgetProvider {
 	}
 	
 	private void log(String lmsg) {
-		android.util.Log.v("ApnSwitch INFO: ", lmsg);
+		android.util.Log.d("ApnSwitch INFO: ", lmsg);
 	}
 	
 	/*
-	 * Returns TRUE if we should use ApnICS();
+	 * Returns TRUE if we should use ApnICS(); -> ICS is SDK_INT 14
 	*/
 	private boolean isICS() {
 		return ( android.os.Build.VERSION.SDK_INT >= 14 ? true : false );

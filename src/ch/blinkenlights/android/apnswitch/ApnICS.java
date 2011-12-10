@@ -31,10 +31,10 @@ public class ApnICS {
 	public boolean getApnStatus(Context ctx) {
 		boolean result = false;
 		try {
-			ConnectivityManager connectivityManager = (ConnectivityManager) ctx.getSystemService(Context.CONNECTIVITY_SERVICE);
-			Method method = connectivityManager.getClass().getMethod("getMobileDataEnabled");
+			ConnectivityManager cmgr = (ConnectivityManager) ctx.getSystemService(Context.CONNECTIVITY_SERVICE);
+			Method method = cmgr.getClass().getMethod("getMobileDataEnabled");
 			method.setAccessible(true);
-			result = (Boolean)method.invoke(connectivityManager);
+			result = (Boolean)method.invoke(cmgr);
 		}
 		catch(Exception e) {
 			log("Error: "+e);
@@ -45,9 +45,9 @@ public class ApnICS {
 	
 	public void setApnStatus(Context ctx, boolean on) {
 		try {
-			ConnectivityManager connectivityManager = (ConnectivityManager) ctx.getSystemService(Context.CONNECTIVITY_SERVICE);
-			Method method = connectivityManager.getClass().getMethod("setMobileDataEnabled", boolean.class);
-			method.invoke(connectivityManager, on);
+			ConnectivityManager cmgr = (ConnectivityManager) ctx.getSystemService(Context.CONNECTIVITY_SERVICE);
+			Method method = cmgr.getClass().getMethod("setMobileDataEnabled", boolean.class);
+			method.invoke(cmgr, on);
 			Thread.sleep(250); /* fixme: we should listen for updates */
 		}
 		catch(Exception e) {
@@ -56,7 +56,7 @@ public class ApnICS {
 	}
 	
 	private void log(String lmsg) {
-		android.util.Log.v("ApnICS: ", lmsg);
+		android.util.Log.d("ApnICS: ", lmsg);
 	}
 	
 }

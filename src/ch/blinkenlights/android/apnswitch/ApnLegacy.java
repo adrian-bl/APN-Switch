@@ -20,8 +20,6 @@ package ch.blinkenlights.android.apnswitch;
 import android.content.Context;
 import android.net.ConnectivityManager;
 
-import java.lang.reflect.Method;
-
 /* ApnDAO method */
 
 public class ApnLegacy {
@@ -41,7 +39,7 @@ public class ApnLegacy {
 	}
 	
 	private void log(String lmsg) {
-		android.util.Log.v("ApnLegacy: ", lmsg);
+		android.util.Log.d("ApnLegacy: ", lmsg);
 	}
 	
 }
