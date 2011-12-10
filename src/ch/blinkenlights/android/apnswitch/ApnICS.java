@@ -43,12 +43,20 @@ public class ApnICS {
 		return result;
 	}
 	
-	public void setApnStatus(Context ctx, boolean on) {
+	public void setApnStatus(Context ctx, boolean isOn) {
 		try {
 			ConnectivityManager cmgr = (ConnectivityManager) ctx.getSystemService(Context.CONNECTIVITY_SERVICE);
 			Method method = cmgr.getClass().getMethod("setMobileDataEnabled", boolean.class);
-			method.invoke(cmgr, on);
-			Thread.sleep(250); /* fixme: we should listen for updates */
+			method.invoke(cmgr, isOn);
+			
+			for(int retry = 0; retry <= 10; retry++) {
+				Thread.sleep(25);
+				if( getApnStatus(ctx) == isOn ) {
+					log("BREAKOUT at "+retry);
+					break;
+				}
+			}
+			
 		}
 		catch(Exception e) {
 			log("Error: "+e);
