@@ -19,9 +19,9 @@ package ch.blinkenlights.android.apnswitch;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
-
 import java.lang.reflect.Method;
 
+/* IceCreamSandwich method -> use setMobileDataEnabled */
 
 public class ApnICS {
 	
@@ -32,12 +32,14 @@ public class ApnICS {
 		boolean result = false;
 		try {
 			ConnectivityManager connectivityManager = (ConnectivityManager) ctx.getSystemService(Context.CONNECTIVITY_SERVICE);
-			Method method = connectivityManager.getClass().getMethod("getMobileDataEnabled", boolean.class);
+			Method method = connectivityManager.getClass().getMethod("getMobileDataEnabled");
+			method.setAccessible(true);
 			result = (Boolean)method.invoke(connectivityManager);
 		}
 		catch(Exception e) {
 			log("Error: "+e);
 		}
+		log("API returns: "+result);
 		return result;
 	}
 	
@@ -46,6 +48,7 @@ public class ApnICS {
 			ConnectivityManager connectivityManager = (ConnectivityManager) ctx.getSystemService(Context.CONNECTIVITY_SERVICE);
 			Method method = connectivityManager.getClass().getMethod("setMobileDataEnabled", boolean.class);
 			method.invoke(connectivityManager, on);
+			Thread.sleep(250); /* fixme: we should listen for updates */
 		}
 		catch(Exception e) {
 			log("Error: "+e);

@@ -22,6 +22,7 @@ import android.net.ConnectivityManager;
 
 import java.lang.reflect.Method;
 
+/* ApnDAO method */
 
 public class ApnLegacy {
 	

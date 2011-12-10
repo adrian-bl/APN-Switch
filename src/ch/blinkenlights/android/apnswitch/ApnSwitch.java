@@ -67,7 +67,7 @@ public class ApnSwitch extends AppWidgetProvider {
 	*/
 	private boolean isICS() {
 		log(">>> "+ android.os.Build.VERSION.SDK_INT);
-		return false;
+		return ( android.os.Build.VERSION.SDK_INT >= 14 ? true : false );
 	}
 	
 	/*
