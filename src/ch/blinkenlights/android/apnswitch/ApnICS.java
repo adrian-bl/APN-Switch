@@ -49,8 +49,8 @@ public class ApnICS {
 			Method method = cmgr.getClass().getMethod("setMobileDataEnabled", boolean.class);
 			method.invoke(cmgr, isOn);
 			
-			for(int retry = 0; retry <= 10; retry++) {
-				Thread.sleep(25);
+			for(int retry = 0; retry < 10; retry++) {
+				Thread.sleep(100);
 				if( getApnStatus(ctx) == isOn ) {
 					log("BREAKOUT at "+retry);
 					break;

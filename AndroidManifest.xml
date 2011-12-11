@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
       package="ch.blinkenlights.android.apnswitch"
-      android:versionCode="132351935"
-      android:versionName="1.20111210">
+      android:versionCode="132351998"
+      android:versionName="1.20111211">
 
     <uses-sdk android:minSdkVersion="4" android:targetSdkVersion="8" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
